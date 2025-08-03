@@ -159,7 +159,7 @@ export const onRequestPost: PagesFunction<{ KV: KVNamespace, TELEGRAM_TOKEN: str
     const vpsCoreApi = env.VPS_CORE_API;
     const resp = await fetch(`${vpsCoreApi}/log?user_id=${encodeURIComponent(user_id)}&task_id=${encodeURIComponent(task_id)}`);
     const text = await resp.text();
-    await sendMessage(chat_id, text.slice(-4000));
+    await sendMessage(chat_id, text.slice(-200));
     return new Response("ok");
   }
 
