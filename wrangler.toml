@@ -1,6 +1,11 @@
 name = "cloudflare-pages-tg-bot"
 compatibility_date = "2024-06-01"
 
+[[kv_namespaces]]
+binding = "KV"
+id = "zfkv"
+
 [vars]
-TELEGRAM_TOKEN = "你的BotToken"
-VPS_LOGIN_API = "http://你的VPS地址:8000"
+TELEGRAM_TOKEN = "你的bot token"
+VPS_LOGIN_API = "https://你的-vps服务器/login"
+VPS_CORE_API = "https://你的-vps服务器/core"
