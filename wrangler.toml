@@ -1,0 +1,9 @@
+name = "tg-forward-manager"
+compatibility_date = "2024-06-01"
+
+[vars]
+# 可选变量
+
+[[kv_namespaces]]
+binding = "KV"
+id = "your-cloudflare-kv-id"
