@@ -99,7 +99,7 @@ export const onRequestPost: PagesFunction<{ KV: KVNamespace, TELEGRAM_TOKEN: str
     return new Response("ok");
   }
 
-  // 2. 手动设置 string_session（适合熟练用户）
+// 2. 手动设置 string_session（适合熟练用户）
   if (msg.text?.startsWith("/set_ss")) {
     const parts = msg.text.trim().split(" ");
     if (parts.length !== 4) {
