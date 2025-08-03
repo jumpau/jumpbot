@@ -1,9 +1,6 @@
-name = "tg-forward-manager"
+name = "cloudflare-pages-tg-bot"
 compatibility_date = "2024-06-01"
 
 [vars]
-# 可选变量
-
-[[kv_namespaces]]
-binding = "KV"
-id = "your-cloudflare-kv-id"
+TELEGRAM_TOKEN = "你的BotToken"
+VPS_LOGIN_API = "http://你的VPS地址:8000"
