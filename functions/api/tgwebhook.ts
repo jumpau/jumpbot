@@ -38,7 +38,7 @@ export const onRequestPost: PagesFunction<{ KV: KVNamespace, TELEGRAM_TOKEN: str
   if (msg.text?.startsWith("/login")) {
     login_state = { step: "api_id" };
     await env.KV.put(`user:${user_id}:login_state`, JSON.stringify(login_state));
-    await sendMessage(chat_id, "请输入你的 api_id（数字）：");
+    await sendMessage(chat_id, "请输入你的 api_id(数字):");
     return new Response("ok");
   }
   if (login_state.step === "api_id") {
@@ -46,9 +46,9 @@ export const onRequestPost: PagesFunction<{ KV: KVNamespace, TELEGRAM_TOKEN: str
       login_state.api_id = msg.text.trim();
       login_state.step = "api_hash";
       await env.KV.put(`user:${user_id}:login_state`, JSON.stringify(login_state));
-      await sendMessage(chat_id, "请输入你的 api_hash：");
+      await sendMessage(chat_id, "请输入你的 api_hash:");
     } else {
-      await sendMessage(chat_id, "api_id 必须是数字，请重新输入：");
+      await sendMessage(chat_id, "api_id 必须是数字，请重新输入:");
     }
     return new Response("ok");
   }
@@ -56,7 +56,7 @@ export const onRequestPost: PagesFunction<{ KV: KVNamespace, TELEGRAM_TOKEN: str
     login_state.api_hash = msg.text.trim();
     login_state.step = "phone";
     await env.KV.put(`user:${user_id}:login_state`, JSON.stringify(login_state));
-    await sendMessage(chat_id, "请输入你的手机号（带区号，如+8613712345678）：");
+    await sendMessage(chat_id, "请输入你的phone num 带区号，如+8613712345678:");
     return new Response("ok");
   }
   if (login_state.step === "phone") {
@@ -73,7 +73,7 @@ export const onRequestPost: PagesFunction<{ KV: KVNamespace, TELEGRAM_TOKEN: str
     if (result.ok) {
       login_state.step = "code";
       await env.KV.put(`user:${user_id}:login_state`, JSON.stringify(login_state));
-      await sendMessage(chat_id, "验证码已发送，请输入你收到的验证码：");
+      await sendMessage(chat_id, "验证码已发送，请输入你收到的验证码:");
     } else {
       await sendMessage(chat_id, `发送验证码失败：${result.msg || "请确认手机号和API信息"}`);
     }
